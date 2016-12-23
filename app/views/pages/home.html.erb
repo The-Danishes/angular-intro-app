@@ -4,14 +4,14 @@
   <div ng-controller="pageCtrl">
 
   <div id="reviews">
-
     <li ng-repeat="review in reviews">
       {{ review }}
+      <input ng-model="review">
     </li>
-
   </div>
 
-    <br />
-    <input ng-model="message">
+  <h3>Add your own review:</h3>
+  <input ng-model="newReview">
+  <button ng-click="addReview(newReview)">Add Review</button>
   </div>
 </div>
