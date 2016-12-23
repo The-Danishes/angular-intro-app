@@ -4,14 +4,20 @@
   <div ng-controller="pageCtrl">
 
   <div id="reviews">
-    <li ng-repeat="review in reviews">
-      {{ review }}
-      <input ng-model="review">
+    <li ng-repeat="review in reviews track by $index" ng-click="deleteReview($index)" ng-if="isPositive(review.text)">
+      Text: {{ review.text }} <br />
+      Rating: {{ review.rating }} <br />
+      Author: {{ review.author }} <br />
+      <input ng-model="review.text">
+      <br />
+      <br />
     </li>
   </div>
 
   <h3>Add your own review:</h3>
-  <input ng-model="newReview">
-  <button ng-click="addReview(newReview)">Add Review</button>
+  Text: <input ng-model="newReviewText"><br />
+  Rating: <input ng-model="newReviewRating"><br />
+  Author: <input ng-model="newReviewAuthor"><br />
+  <button ng-click="addReview(newReviewText, newReviewRating, newReviewAuthor)">Add Review</button>
   </div>
 </div>
